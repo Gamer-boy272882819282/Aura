@@ -1,75 +1,87 @@
-/* General page styling */
+/* ===========================
+   GENERAL PAGE STYLE
+   =========================== */
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(#050915, #152036);
+    color: #ffffff;
     text-align: center;
-    background-color: #f0f8ff;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
-/* Game title */
+/* Title Glow */
 h1 {
-    color: #1e90ff;
-    margin-top: 20px;
+    animation: glow 2.5s infinite alternate;
 }
 
-/* Aura display */
-#auraCount {
-    font-weight: bold;
-    font-size: 24px;
+@keyframes glow {
+    from { text-shadow: 0 0 8px #69f3ff; }
+    to   { text-shadow: 0 0 15px #9ffcff; }
 }
 
-/* Clickable aura button */
-#auraButton {
-    width: 200px;
-    height: 200px;
-    font-size: 24px;
-    margin: 20px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #00f, #0ff);
-    color: white;
-    border: none;
+/* ===========================
+   AURORA IMAGE
+   =========================== */
+#auraImage {
+    width: 360px;
     cursor: pointer;
-    box-shadow: 0px 0px 20px #00f;
-    transition: transform 0.1s, box-shadow 0.1s;
-}
-
-#auraButton:active {
-    transform: scale(0.95);
-    box-shadow: 0px 0px 30px #00ffff;
-}
-
-/* Upgrades container */
-.upgrade {
-    margin: 10px;
-    padding: 15px 20px;
-    border: 2px solid #00bcd4;
     border-radius: 10px;
-    display: inline-block;
-    background-color: #e0f7fa;
+    box-shadow: 0 0 25px #6ff7ff;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#auraImage:active {
+    transform: scale(0.93);
+    box-shadow: 0 0 40px #aaffff;
+}
+
+/* ===========================
+   UPGRADE STORE
+   =========================== */
+#store {
+    width: 360px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.upgrade {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
     cursor: pointer;
-    transition: transform 0.1s, background-color 0.2s;
+    transition: background 0.2s;
 }
 
 .upgrade:hover {
-    transform: scale(1.05);
-    background-color: #b2ebf2;
+    background: rgba(255, 255, 255, 0.22);
 }
 
-/* Headings */
-h2 {
-    color: #00796b;
+/* ===========================
+   FLOATING TEXT
+   =========================== */
+.floatingText {
+    position: absolute;
+    color: #b7ffff;
+    font-size: 20px;
+    text-shadow: 0 0 6px #afffff;
+    animation: floatUp 1s ease-out forwards;
+    pointer-events: none;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 500px) {
-    #auraButton {
-        width: 150px;
-        height: 150px;
-        font-size: 18px;
-    }
-    .upgrade {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-40px); }
 }
+
+/* ===========================
+   PARTICLE EFFECT
+   =========================== */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
